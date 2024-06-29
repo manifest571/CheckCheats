@@ -1,0 +1,431 @@
+"Phrases"
+{
+	"AdminMenuCategoryName"
+	{
+		"ru"		"Проверка на читы"
+		"en"		"Check Cheats"
+	}
+	
+	"MainMenuTitle"
+	{
+		"ru"		"Выбор действия:"
+		"en"		"Choise action:"
+	}
+	
+	"MainMenuFirstItem"
+	{
+		"ru"		"Выбор игрока"
+		"en"		"Choise player"
+	}
+	
+	"ChoosePlayerMenuTitle"
+	{
+		"ru"		"Выберите игрока:"
+		"en"		"Choose player:"
+	}
+	
+	"ChoosePlayerOnVerification"
+	{
+		"ru"		"[На проверке]"
+		"en"		"[On verification]"
+	}
+	
+	"PlayersNotFound"
+	{
+		"ru"		"Игроки для проверки не найдены!"
+		"en"		"No players found for check!"
+	}
+	
+	"PlayerAlreadyCheck"
+	{
+		"#format"	"{1:N},{2:N}"
+		
+		"ru"		"{green}NEVADA {default}● {red}{1}{default}, Вы уже проверяете игрока {red}{2}!"
+		"en"		"{green}NEVADA {default}● {red}{1}{default}, You are already checking player {red}{2}!"
+	}
+	
+	"PlayerAlreadyCheck ClientMod"
+	{
+		"#format"	"{1:N},{2:N}"
+		
+		"ru"		"{chartreuse}NEVADA {orangered}● {yellow}{1}{aliceblue}, Вы уже проверяете игрока {yellow}{2}!"
+		"en"		"{chartreuse}NEVADA {orangered}● {yellow}{1}{aliceblue}, You are already checking player {yellow}{2}!"
+	}
+	
+	"CheckPlayerLeft"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{green}NEVADA {red}● {default}Проверяемый игрок {red}{1} {default}вышел с сервера!"
+		"en"		"{green}NEVADA {red}● {default}The checked player {red}{1} {default}has left the server!"
+	}
+	
+	"CheckPlayerLeft ClientMod"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Проверяемый игрок {yellow}{1} {aliceblue}вышел с сервера!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}The checked player {yellow}{1} {aliceblue}has left the server!"
+	}
+	
+	"CheckStartAllText"
+	{
+		"#format"	"{1:N},{2:N}"
+		
+		"ru"		"{green}NEVADA {red}● {default}Администратор {red}{1} {default}вызвал на проверку игрока {green}{2}{default}!"
+		"en"		"{green}NEVADA {red}● {default}Administrator {red}{1} {default}has called player {green}{2} {default}for a check!"
+	}
+	
+	"CheckStartAllText ClientMod"
+	{
+		"#format"	"{1:N},{2:N}"
+		
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Администратор {yellow}{1} {aliceblue}вызвал на проверку игрока {yellow}{2}{aliceblue}!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}Administrator {yellow}{1} {aliceblue}has called player {yellow}{2} {aliceblue}for a check!"
+	}
+	
+	"CheckStartPlayerText"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{green}NEVADA {red}● ВНИМАНИЕ! {default}Администратор {green}{1} {default}вызвал Вас на проверку!"
+		"en"		"{green}NEVADA {red}● ATTENTION! {default}Administrator {green}{1} {default}called you for a check!"
+	}
+	
+	"CheckStartPlayerText ClientMod"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{chartreuse}NEVADA {orangered}● {fullred}ВНИМАНИЕ! {aliceblue}Администратор {yellow}{1} {aliceblue}вызвал Вас на проверку!"
+		"en"		"{chartreuse}NEVADA {orangered}● {fullred}ATTENTION! {aliceblue}Administrator {yellow}{1} {aliceblue}called you for a check!"
+	}
+	
+	"BlockSpecText"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{1}, на время проверки администратор запретил Вам вход в игру!"
+		"en"		"{1}, during the check, the administrator has forbidden you to enter the game!"
+	}
+	
+	"CheckMenuTitle"
+	{
+		"#format"	"{1:N},{2:s}"
+		
+		"ru"		"Панель проверки на читы\n \nПроверяется: {1}\n \nСтатус проверки: {2}"
+		"en"		"Check Cheats Panel\n \nChecking: {1}\n \nCheck Status: {2}"
+	}
+	
+	"CheckMenuFirstItem"
+	{
+		"#format"	"{1:s},{2:s}"
+		
+		"ru"		"Звонок был принят\n \n{1} игрока: {2}\n "
+		"en"		"Call was answered\n \n{1} player: {2}\n "
+	}
+	
+	"CheckMenuNotifyItem"
+	{
+		"ru"		"Напомнить игроку о введении данных!"
+		"en"		"Remind the player to enter data!"
+	}
+	
+	"ChooseMessengerMenuTitle"
+	{
+		"ru"		"Выберите мессенджер:"
+		"en"		"Choose messenger:"
+	}
+	
+	"CheckLeaveAdmin"
+	{
+		"ru"		"{green}NEVADA {red}● {default}Администратор покинул сервер, проверка автоматически отменена!"
+		"en"		"{green}NEVADA {red}● {default}The administrator has left the server, the check is automatically canceled!"
+	}
+	
+	"CheckLeaveAdmin Clientmod"
+	{
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Администратор покинул сервер, проверка автоматически отменена!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}The administrator has left the server, the check is automatically canceled!"
+	}
+	
+	"CheckLeavePlayer"
+	{
+		"ru"		"{green}NEVADA {red}● {default}Игрок которого Вы проверяли покинул сервер!"
+		"en"		"{green}NEVADA {red}● {default}The player you checked has left the server!"
+	}
+	
+	"CheckLeavePlayer ClientMod"
+	{
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Игрок которого Вы проверяли покинул сервер!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}The player you checked has left the server!"
+	}
+	
+	"ChooseMessengerText"
+	{
+		"ru"		"Выберите мессенджер для связи с администратором!"
+		"en"		"Choose a messenger to contact the administrator!"
+	}
+	
+	"PlayerNotifyAdmin"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{green}NEVADA {red}● {default}Вы успешно напомнили игроку {green}{1} {default}о том, что он должен ввести данные для связи!"
+		"en"		"{green}NEVADA {red}● {default}You have successfully reminded player {green}{1} {default}to enter contact details!"
+	}
+	
+	"PlayerNotifyAdmin ClientMod"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Вы успешно напомнили игроку {yellow}{1} {aliceblue}о том, что он должен ввести данные для связи!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}You have successfully reminded player {yellow}{1} {aliceblue}to enter contact details!"
+	}
+	
+	"PlayerBlockSpecAdmin"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{green}NEVADA {red}● {default}Вы успешно заблокировали игроку {green}{1} {default}переход в другие команды!"
+		"en"		"{green}NEVADA {red}● {default}You have successfully blocked player {green}{1} {default}from moving to other teams!"
+	}
+	
+	"PlayerBlockSpecAdmin ClientMod"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Вы успешно заблокировали игроку {yellow}{1} {aliceblue}переход в другие команды!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}You have successfully blocked player {yellow}{1} {aliceblue}from moving to other teams!"
+	}
+	
+	"PlayerBlockSpecText"
+	{
+		"ru"		"{green}NEVADA {red}● {default}Вам был заблокирован переход в другие команды!"
+		"en"		"{green}NEVADA {red}● {default}You have been blocked from switching to other teams!"
+	}
+	
+	"PlayerBlockSpecText ClientMod"
+	{
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Вам был заблокирован переход в другие команды!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}You have been blocked from switching to other teams!"
+	}
+	
+	"PlayerSendedDiscordAdmin"
+	{
+		"#format"	"{1:N},{2:s}"
+		
+		"ru"		"{green}NEVADA {red}● {default}Игрок {green}{1} {default}ввёл свой Discord: {red}{2}"
+		"en"		"{green}NEVADA {red}● {default}Player {green}{1} {default}entered his Discord: {red}{2}"
+	}
+	
+	"PlayerSendedDiscordAdmin ClientMod"
+	{
+		"#format"	"{1:N},{2:s}"
+		
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Игрок {yellow}{1} {aliceblue}ввёл свой Discord: {yellow}{2}"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}Player {yellow}{1} {aliceblue}entered his Discord: {yellow}{2}"
+	}
+	
+	"PlayerNotifyWriteData"
+	{		
+		"en"		"{green}NEVADA {red}● {default}Enter your Discord!"
+		"ru"		"{green}NEVADA {red}● {default}Введите данные своего Discord!"
+	}
+	
+	"PlayerNotifyWriteData ClientMod"
+	{		
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}Enter your Discord!"
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Введите данные своего Discord!"
+	}
+	
+	"PlayerSendedDiscord"
+	{	
+		"ru"		"{green}NEVADA {red}● {default}Вы успешно ввели свой Discord, ожидайте звонка администратора!"
+		"en"		"{green}NEVADA {red}● {default}You have successfully entered your Discord, wait for an admin call!"
+	}
+	
+	"PlayerSendedDiscord ClientMod"
+	{	
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Вы успешно ввели свой Discord, ожидайте звонка администратора!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}You have successfully entered your Discord, wait for an admin call!"
+	}
+	
+	"DataError"
+	{
+		
+		"ru"		"В указанных данных обнаружены ошибки, попробуйте ещё раз!"
+		"en"		"Errors were found in the specified data, please try again!"
+	}
+	
+	"Status_WaitCommunication"
+	{
+		"ru"		"Ожидание ввода"
+		"en"		"Wait Enter Player Data"
+	}
+	
+	"Status_WaitDiscord"
+	{
+		"ru"		"Ожидание Discord"
+		"en"		"Wait Discord"
+	}
+	
+	"Status_WaitCall"
+	{
+		"ru"		"Ожидание звонка"
+		"en"		"Wait Call"
+	}
+	
+	"Status_Checking"
+	{
+		"ru"		"Ожидание окончания проверки"
+		"en"		"Waiting for the end of the check"
+	}
+	
+	"Status_Result"
+	{
+		"ru"		"Результат проверки"
+		"en"		"Checking Result"
+	}
+	
+	"CheckEnded"
+	{
+		"ru"		"Проверка окончена"
+		"en"		"Checking Ended"
+	}
+	
+	"GoodResult"
+	{
+		"ru"		"Читы не обнаружены"
+		"en"		"Cheats not found"
+	}
+	
+	"BadResult"
+	{
+		"ru"		"Обнаружены читы"
+		"en"		"Cheats found"
+	}
+	
+	"PlayerToSpec"
+	{
+		"ru"		"Переместить в наблюдатели"
+		"en"		"Move To Spectators"
+	}
+	
+	"PlayerBlockSpec"
+	{
+		"ru"		"Заблокировать переход"
+		"en"		"Block Actions"
+	}
+	
+	"EndCheckPlayer"
+	{
+		"ru"		"Принудительно окончить проверку"
+		"en"		"Finish checking"
+	}
+	
+	"PlayerToSpecAdmin"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{green}NEVADA {red}● {default}Вы успешно перенесли в наблюдатели игрока {1}"
+		"en"		"{green}NEVADA {red}● {default}You have successfully moved player {1} to spectators."
+	}
+	
+	"PlayerToSpecAdmin ClientMod"
+	{
+		"#format"	"{1:N}"
+		
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Вы успешно перенесли в {gray}наблюдатели {aliceblue}игрока {yellow}{1}"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}You have successfully moved player {yellow}{1} to {gray}spectators."
+	}
+	
+	"PlayerToSpecText"
+	{
+		"ru"		"{green}NEVADA {red}● {default}Администратор переместил Вас в наблюдатели!"
+		"en"		"{green}NEVADA {red}● {default}The administrator has moved you to the spectators!"
+	}
+	
+	"PlayerToSpecText ClientMod"
+	{
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Администратор переместил Вас в {gray}наблюдатели{aliceblue}!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}The administrator has moved you to the {gray}spectators{aliceblue}!"
+	}
+	
+	"PlayerCheatsNotFound"
+	{
+		"ru"		"{green}NEVADA {red}● {default}У Вас не обнаружено читов, проверка окончена, спасибо за честную игру!"
+		"en"		"{green}NEVADA {red}● {default}No cheats were found for you, the check is over, thanks for the fair play!"
+	}
+	
+	"PlayerCheatsNotFound ClientMod"
+	{
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}У Вас {lime}не обнаружено читов{aliceblue}, проверка окончена, спасибо за честную игру!"
+		"en"		"{chartreuse}NEVADA {orangered}● {lime}No cheats were found {aliceblue}for you, the check is over, thanks for the fair play!"
+	}
+	
+	"PlayerCheatsNotFoundAdmin"
+	{
+		"ru"		"{green}NEVADA {red}● {default}Вы успешно завершили проверку игрока. {green}(Читы не обнаружены)"
+		"en"		"{green}NEVADA {red}● {default}You have successfully completed player checking. {green}(Cheats not found)"
+	}
+	
+	"PlayerCheatsNotFoundAdmin ClientMod"
+	{
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Вы успешно завершили проверку игрока. {lime}(Читы не обнаружены)"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}You have successfully completed player checking. {lime}(Cheats not found)"
+	}
+	
+	"PlayerCheatsFound"
+	{
+		"ru"		"{green}NEVADA {red}● {default}У Вас {red}обнаружены читы{default}, проверка окончена!"
+		"en"		"{green}NEVADA {red}● {default}You have {red}found cheats{default}, the check is over!"
+	}
+	
+	"PlayerCheatsFound ClientMod"
+	{
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}У Вас {fullred}обнаружены читы{aliceblue}, проверка окончена!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}You have {fullred}found cheats{aliceblue}, the check is over!"
+	}
+	
+	"PlayerCheatsFoundAdmin"
+	{
+		"ru"		"Вы успешно завершили проверку игрока. (Читы обнаружены)"
+		"en"		"You have successfully completed player checking. (Cheats found)"
+	}
+	
+	"PlayerCheatsFoundAdmin ClientMod"
+	{
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Вы успешно завершили проверку игрока. {fullred}(Читы обнаружены)"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}You have successfully completed player checking. {fullred}(Cheats found)"
+	}
+	
+	"RefusalToCheck"
+	{
+		"ru"		"Отказать от проверки [БАН]"
+		"en"		"Refusal To Check [BAN]"
+	}
+	
+	"InteractionErrorPlayer"
+	{
+		"ru"		"{green}NEVADA {red}● {default}Выполнение действия невозможно т.к. проверка завершена!"
+		"en"		"{green}NEVADA {red}● {default}The action is impossible because checking completed!"
+	}
+	
+	"InteractionErrorPlayer ClientMod"
+	{
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Выполнение действия невозможно т.к. проверка завершена!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}The action is impossible because checking completed!"
+	}
+	
+	"InteractionErrorAdmin"
+	{
+		"ru"		"{green}NEVADA {red}● {default}Выполнение действия невозможно т.к. игрок вышел с сервера!"
+		"en"		"{green}NEVADA {red}● {default}The action is impossible because the player left the server!"
+	}
+	
+	"InteractionErrorAdmin ClientMod"
+	{
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Выполнение действия невозможно т.к. игрок вышел с сервера!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}The action is impossible because the player left the server!"
+	}
+}
