@@ -26,8 +26,6 @@ public Plugin myinfo = {
     url = "nevada-css.ru"
 }
 
-#define CHECKCHEATS_MAINMENU "CheckCheats_MainMenu"
-
 public void OnPluginStart() 
 {
     BuildPath(Path_SM, g_sLogPath, PLATFORM_MAX_PATH, "logs/check_cheats.log");
@@ -37,17 +35,11 @@ public void OnPluginStart()
     AutoExecConfig(true, "CheckCheats");
     LoadTranslations("checkcheats.phrases");
 
-    CreateTimer(0.1, Timer_GiveOverlay, _, TIMER_REPEAT);
+    CreateTimer(1.0, Timer_GiveOverlay, .flags = TIMER_REPEAT|TIMER_FLAG_NO_MAPCHANGE);
 	
 	AddCommandListener(Command_JoinTeam, "jointeam");
 
-    if(LibraryExists("adminmenu")) {
-        TopMenu hTopMenu;
-
-        if((hTopMenu = GetAdminTopMenu()) != null) {
-            OnAdminMenuReady(hTopMenu);
-        }
-    }
+    LoadAdminMenu();
 }
 
 public void OnClientConnected(int iClient) 
@@ -92,7 +84,7 @@ public void OnClientDisconnect(int iClient)
             CC_PrintLog(iClient, iClientChoose, "CheckPlayerLeave", "");
 
             if(g_bBanEnabled) 
-                CC_BanClient(iClient, iClientChoose, true);
+                CC_BanClient(iClient, iClientChoose, true, g_sBanReason);
         }
     }
 }
@@ -101,7 +93,7 @@ public Action Command_JoinTeam(int iClient, const char[] sCommand, int iArgs)
 {
     if (CC_IsCheckedPlayer(iClient) && g_esPlayerInfo[iClient].bBlockSpec) 
     {
-		CPrintToChat(iClient, "%t", (!CM_IsClientModUser(iClient) ? "BlockSpecText" : "BlockSpecText ClientMod"));
+		CPrintToChat(iClient, "%t", (!CM_IsClientModUser(iClient) ? "PlayerBlockSpecText" : "PlayerBlockSpecText ClientMod"));
 		
         return Plugin_Handled;
 	}
@@ -123,7 +115,7 @@ public Action Timer_GiveOverlay(Handle hTimer)
                     if (g_iWaitTime > 0 && g_esPlayerInfo[i].iWaitMessengerTime <= 0)
                     {
                         CC_PrintLog(iAdmin, i, "IgnoreEnterData", "");
-                        CC_BanClient(i, iAdmin, false);
+                        CC_BanClient(i, iAdmin, false, g_sBanReason);
                     }
                     else
                     {
@@ -138,6 +130,7 @@ public Action Timer_GiveOverlay(Handle hTimer)
             }
         }
     }
+    return Plugin_Continue;
 }
 
 public Action OnClientSayCommand(int iClient, const char[] sCommand, const char[] sNameDiscord) 
@@ -150,7 +143,7 @@ public Action OnClientSayCommand(int iClient, const char[] sCommand, const char[
 
     if (g_esPlayerInfo[iClient].iStatusCheck == STATUS_WAITCOMMUNICATION)
     {
-        strcopy(g_esPlayerInfo[iClient].sDiscord, 64, sNameDiscord[3]);
+        strcopy(g_esPlayerInfo[iClient].sDiscord, 64, sNameDiscord[9]);
 
         int iAdmin = CC_IsCheckedPlayer(iClient);
         if (CC_IsValidClient(iAdmin))
@@ -171,9 +164,9 @@ public Action OnClientSayCommand(int iClient, const char[] sCommand, const char[
 
 public void MakeVerify(int iClient, int iClientChoose) 
 {
-    g_iActionPlayer[iClient] = GetClientOfUserId(iClientChoose);
     g_esPlayerInfo[iClientChoose].iWaitMessengerTime = g_iWaitTime;
     g_esPlayerInfo[iClientChoose].iStatusCheck = STATUS_WAITCOMMUNICATION;
+	g_iActionPlayer[iClient] = GetClientUserId(iClientChoose);
 
     CC_PrintLog(iClient, iClientChoose, "CheckStart", "");
     CPrintToChat(iClientChoose, "%t", (!CM_IsClientModUser(iClientChoose) ? "CheckStartPlayerText" : "CheckStartPlayerText ClientMod"), iClient);

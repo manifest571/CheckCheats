@@ -32,7 +32,8 @@ ConVar  g_cHideAdmins,
         g_cSoundPath, 
         g_cBanTime, 
         g_cOverlayPath, 
-        g_cBanReason, 
+        g_cBanReason,
+		g_cBanCheats,
         g_cBanEnabled, 
         g_cWaitMessengerTime;
 
@@ -47,6 +48,7 @@ int     g_iActionPlayer[MAXPLAYERS+1];
 char    g_sLogPath[PLATFORM_MAX_PATH],
         g_sSoundPath[PLATFORM_MAX_PATH], 
         g_sOverlayPath[PLATFORM_MAX_PATH], 
-        g_sBanReason[128];
+        g_sBanReason[128],
+		g_sBanCheatsReason[128];
 
 esPlayer g_esPlayerInfo[MAXPLAYERS+1];

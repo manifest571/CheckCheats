@@ -1,4 +1,4 @@
-void CC_BanClient(int iClient, int iAdmin, bool bOffline) 
+void CC_BanClient(int iClient, int iAdmin, bool bOffline, char[] szReason = "") 
 {
     if(CanTestFeatures() && GetFeatureStatus(FeatureType_Native, "MABanPlayer") == FeatureStatus_Available) {
         if(bOffline) {
@@ -8,17 +8,17 @@ void CC_BanClient(int iClient, int iAdmin, bool bOffline)
             GetClientIP(iClient, sIP, sizeof sIP);
             GetClientName(iClient, sName, sizeof sName);
 
-            MAOffBanPlayer(iAdmin, MA_BAN_STEAM, sSteamID, sIP, sName, g_iBanTime, g_sBanReason);
+            MAOffBanPlayer(iAdmin, MA_BAN_STEAM, sSteamID, sIP, sName, g_iBanTime, szReason);
         } 
         else 
-            MABanPlayer(iAdmin, iClient, MA_BAN_STEAM, g_iBanTime, g_sBanReason);
+            MABanPlayer(iAdmin, iClient, MA_BAN_STEAM, g_iBanTime, szReason);
     }
 }
 
 void LoadCvars()
 {
     g_cWaitMessengerTime = CreateConVar("checkcheats_wait_time", "10", "Время в минутах отведённое на ожидание данных игрока для связи. [0 - без лимита]");
-    g_iWaitTime = g_cWaitMessengerTime.IntValue;
+    g_iWaitTime = g_cWaitMessengerTime.IntValue * 60;
     g_cWaitMessengerTime.AddChangeHook(OnConVarChanged);
 
     g_cBanEnabled = CreateConVar("checkcheats_ban_enabled", "1", "Бан игроков при наличии читов/выходе с сервера. [0 - Выключить | 1 - Включить]");
@@ -28,6 +28,10 @@ void LoadCvars()
     g_cBanReason = CreateConVar("checkcheats_ban_reason", "Отказ пройти проверку на читы", "Причина бана игроков при отказе от проверки.");
     g_cBanReason.GetString(g_sBanReason, sizeof(g_sBanReason));
     g_cBanReason.AddChangeHook(OnConVarChanged);
+	
+	g_cBanCheats = CreateConVar("checkcheats_ban_cheat_reason", "Читы обнаружены", "Причина бана игроков при нахождении читов");
+    g_cBanCheats.GetString(g_sBanCheatsReason, sizeof(g_sBanCheatsReason));
+    g_cBanCheats.AddChangeHook(OnConVarChanged);
 
     g_cHideAdmins = CreateConVar("checkcheats_admins_hide", "1", "Скрытие администраторов в списке на проверку. [0 - Выключить | 1 - Включить]");
     g_bHideAdmins = g_cHideAdmins.BoolValue;
@@ -54,6 +58,8 @@ public void OnConVarChanged(ConVar convar, const char[] oldValue, const char[] n
         g_bBanEnabled = g_cBanEnabled.BoolValue;
     else if (convar == g_cBanReason)
         g_cBanReason.GetString(g_sBanReason, sizeof(g_sBanReason));
+	else if (convar == g_cBanCheats)
+        g_cBanCheats.GetString(g_sBanCheatsReason, sizeof(g_sBanCheatsReason));
     else if (convar == g_cHideAdmins)
         g_bHideAdmins = g_cHideAdmins.BoolValue;
     else if (convar == g_cSoundPath)
@@ -120,7 +126,7 @@ char[] GetStatus(int iClient, int iStatus)
 
 bool CC_IsValidClient(int iClient) 
 {
-    if(iClient > 0 && iClient <= MaxClients && IsClientInGame(iClient) && !IsFakeClient(iClient)) 
+    if(iClient > 0 && iClient <= MaxClients && IsClientInGame(iClient) && IsClientConnected(iClient) && !IsFakeClient(iClient)) 
         return true;
 
     return true;
@@ -128,15 +134,18 @@ bool CC_IsValidClient(int iClient)
 
 int CC_IsCheckedPlayer(int iClient) 
 {
-    if (STATUS_NOTCHECKING < g_esPlayerInfo[iClient].iStatusCheck < STATUS_RESULT)
+    if(iClient > 0 && iClient <= MaxClients && IsClientInGame(iClient) && !IsFakeClient(iClient)) 
     {
-        int iUserID = GetClientUserId(iClient);
-        for(int i = 1; i <= MaxClients; i++) 
+        if (STATUS_NOTCHECKING < g_esPlayerInfo[iClient].iStatusCheck <= STATUS_RESULT)
         {
-            if(IsClientInGame(i)) 
+            int iUserID = GetClientUserId(iClient);
+            for(int i = 1; i <= MaxClients; i++) 
             {
-                if(g_iActionPlayer[i] == iUserID) 
-                    return i;
+                if(IsClientInGame(i)) 
+                {
+                    if(g_iActionPlayer[i] == iUserID) 
+                        return i;
+                }
             }
         }
     }

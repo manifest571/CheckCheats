@@ -1,4 +1,5 @@
-public void MainMenu(int iClient) {
+/*
+void MainMenu(int iClient) {
     char sBuffer[256];
 
     Menu hMenu = new Menu(MainMenu_Handler);
@@ -34,6 +35,7 @@ public int MainMenu_Handler(Menu hMenu, MenuAction mAction, int iClient, int iSl
         } 
     }
 }
+*/
 
 public void ChoosePlayerMenu(int iClient) 
 {
@@ -53,13 +55,13 @@ public void ChoosePlayerMenu(int iClient)
     int iUserFlags = 0;
     for (int i = 1; i <= MaxClients; i++)
     {
-        if (CC_IsValidClient(i))
+        if (IsClientInGame(i) && !IsFakeClient(i))
         {
             iUserFlags = GetUserFlagBits(i);
-            if (iUserFlags & ADMFLAG_ROOT)
-                continue;
+            //if (iUserFlags & ADMFLAG_ROOT)
+            //    continue;
 
-            if (!iUserFlags || (!g_bHideAdmins && (iUserFlags & ADMFLAG_BAN)))
+            if (!g_bHideAdmins || !(iUserFlags & ADMFLAG_BAN))
             {
                 IntToString(GetClientUserId(i), sID, sizeof(sID));
                 GetClientName(i, szName, MAX_NAME_LENGTH);
@@ -90,11 +92,13 @@ public int ChoosePlayerMenu_Handler(Menu hMenu, MenuAction mAction, int iClient,
     switch (mAction) 
     {
         case MenuAction_End: delete hMenu;
-        case MenuAction_Cancel: 
+        /*
+		case MenuAction_Cancel: 
         {
             if(iSlot == MenuCancel_ExitBack) 
                 MainMenu(iClient);
         }
+		*/
         case MenuAction_Select: 
         {
             char sInfo[256];
@@ -154,7 +158,7 @@ public int ChooseMessengerMenu_Handler(Menu hMenu, MenuAction mAction, int iClie
                 }
                 case 'r': {
                     if(g_bBanEnabled) 
-                        CC_BanClient(iClient, 0, false);
+                        CC_BanClient(iClient, 0, false, g_sBanReason);
                 }
             }
         }
@@ -252,7 +256,7 @@ public int Menu_PanelCheck_Handler(Menu hMenu, MenuAction mAction, int iClient, 
                     ChangeClientTeam(iClientChoose, CS_TEAM_SPECTATOR);
                     CC_PrintLog(iClient, iClientChoose, "PlayerToSpec", "");
                     CPrintToChat(iClientChoose, "%t", (!CM_IsClientModUser(iClientChoose) ? "PlayerToSpecText" : "PlayerToSpecText ClientMod"));
-                    CPrintToChat(iClient, "%t", (!CM_IsClientModUser(iClient) ? "PlayerToSpecAdmin" : "PlayerToSpecAdmin ClientMod"));
+                    CPrintToChat(iClient, "%t", (!CM_IsClientModUser(iClient) ? "PlayerToSpecAdmin" : "PlayerToSpecAdmin ClientMod"), iClientChoose);
                 }
                 else if (!strcmp(sInfo, "Notif"))
                 {
@@ -292,7 +296,7 @@ public int Menu_PanelCheck_Handler(Menu hMenu, MenuAction mAction, int iClient, 
                     CPrintToChat(iClient, "%t", (!CM_IsClientModUser(iClient) ? "PlayerCheatsFoundAdmin" : "PlayerCheatsFoundAdmin ClientMod"));
 
                     if(g_bBanEnabled) 
-                        CC_BanClient(iClientChoose, iClient, false);
+						CC_BanClient(iClientChoose, iClient, false, g_sBanCheatsReason); 
                 }
             }
         }

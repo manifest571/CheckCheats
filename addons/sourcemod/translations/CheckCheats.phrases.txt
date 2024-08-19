@@ -88,16 +88,16 @@
 	{
 		"#format"	"{1:N}"
 		
-		"ru"		"{green}NEVADA {red}● ВНИМАНИЕ! {default}Администратор {green}{1} {default}вызвал Вас на проверку!"
-		"en"		"{green}NEVADA {red}● ATTENTION! {default}Administrator {green}{1} {default}called you for a check!"
+		"ru"		"{green}NEVADA {red}● ВНИМАНИЕ! {default}Администратор {green}{1} {default}вызвал Вас на проверку!\n{red}● {green}Enter your contacts: {default}!contact {green}<discord>"
+		"en"		"{green}NEVADA {red}● ATTENTION! {default}Administrator {green}{1} {default}called you for a check!\n{red}● {green}Введите свои контакты: {default}!contact {green}<discord>"
 	}
 	
 	"CheckStartPlayerText ClientMod"
 	{
 		"#format"	"{1:N}"
 		
-		"ru"		"{chartreuse}NEVADA {orangered}● {fullred}ВНИМАНИЕ! {aliceblue}Администратор {yellow}{1} {aliceblue}вызвал Вас на проверку!"
-		"en"		"{chartreuse}NEVADA {orangered}● {fullred}ATTENTION! {aliceblue}Administrator {yellow}{1} {aliceblue}called you for a check!"
+		"ru"		"{chartreuse}NEVADA {orangered}● {fullred}ВНИМАНИЕ! {aliceblue}Администратор {yellow}{1} {aliceblue}вызвал Вас на проверку!\n{orangered}● {aliceblue}Enter your contacts: {yellow}!contact {rare}<discord>"
+		"en"		"{chartreuse}NEVADA {orangered}● {fullred}ATTENTION! {aliceblue}Administrator {yellow}{1} {aliceblue}called you for a check!\n{orangered}● {aliceblue}Введите свои контакты: {yellow}!contact {rare}<discord>"
 	}
 	
 	"BlockSpecText"
@@ -228,14 +228,14 @@
 	
 	"PlayerNotifyWriteData"
 	{		
-		"en"		"{green}NEVADA {red}● {default}Enter your Discord!"
-		"ru"		"{green}NEVADA {red}● {default}Введите данные своего Discord!"
+		"en"		"{green}NEVADA {red}● {default}Enter your Discord!\n{red}● {default}!contact {green}<discord>"
+		"ru"		"{green}NEVADA {red}● {default}Введите данные своего Discord!\n{red}● {default}!contact {green}<discord>"
 	}
 	
 	"PlayerNotifyWriteData ClientMod"
 	{		
-		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}Enter your Discord!"
-		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Введите данные своего Discord!"
+		"en"		"{chartreuse}NEVADA {orangered}● {aliceblue}Enter your Discord!\n{orangered}● {yellow}!contact {rare}<discord>"
+		"ru"		"{chartreuse}NEVADA {orangered}● {aliceblue}Введите данные своего Discord!\n{orangered}● {yellow}!contact {rare}<discord>"
 	}
 	
 	"PlayerSendedDiscord"
@@ -252,7 +252,6 @@
 	
 	"DataError"
 	{
-		
 		"ru"		"В указанных данных обнаружены ошибки, попробуйте ещё раз!"
 		"en"		"Errors were found in the specified data, please try again!"
 	}
